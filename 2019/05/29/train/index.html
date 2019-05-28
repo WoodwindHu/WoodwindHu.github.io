@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://yoursite.com/img/train_files/train_27_2.png">
 <meta property="og:image" content="http://yoursite.com/img/train_files/train_31_0.png">
 <meta property="og:image" content="http://yoursite.com/img/train_files/train_33_0.png">
-<meta property="og:updated_time" content="2019-05-28T16:16:04.257Z">
+<meta property="og:updated_time" content="2019-05-28T16:40:17.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="train">
 <meta name="twitter:description" content="123%reload_ext autoreload%autoreload 2%matplotlib inline 1234from fastai.vision import *from fastai.metrics import error_ratefrom fastai.callbacks import *import glob 1path = Path(&apos;../input/flowers-re">
@@ -168,7 +168,7 @@
 
         
         <a href="/2019/05/29/train/" class="archive-article-date">
-  	<time datetime="2019-05-28T16:15:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-29</time>
+  	<time datetime="2019-05-28T16:39:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-29</time>
 </a>
         
       </header>
@@ -182,8 +182,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.classes</span><br></pre></td></tr></table></figure>
 <pre><code>[&apos;daisy&apos;, &apos;dandelion&apos;, &apos;rose&apos;, &apos;sunflower&apos;, &apos;tulip&apos;]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.show_batch(rows=<span class="number">3</span>, figsize=(<span class="number">7</span>,<span class="number">8</span>))</span><br></pre></td></tr></table></figure>
-<p><img src="/img/train_files/train_5_0.png" alt="png"></p>
-<a id="more"></a>
+<p><img src="/img/train_files/train_5_0.png" alt="png"><br><a id="more"></a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.classes, data.c, len(data.train_ds), len(data.valid_ds)</span><br></pre></td></tr></table></figure>
 <pre><code>([&apos;daisy&apos;, &apos;dandelion&apos;, &apos;rose&apos;, &apos;sunflower&apos;, &apos;tulip&apos;], 5, 2733, 683)
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn = cnn_learner(data, models.resnet50, metrics=error_rate)</span><br></pre></td></tr></table></figure>
@@ -193,10 +192,54 @@
 </code></pre><p><img src="/img/train_files/train_9_2.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lr = <span class="number">1e-2</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.fit_one_cycle(<span class="number">5</span>, slice(lr))</span><br></pre></td></tr></table></figure>
-<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: left;"><br>      <th>epoch</th><br>      <th>train_loss</th><br>      <th>valid_loss</th><br>      <th>error_rate</th><br>      <th>time</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td>0</td><br>      <td>0.758445</td><br>      <td>0.512455</td><br>      <td>0.194729</td><br>      <td>00:13</td><br>    </tr><br>    <tr><br>      <td>1</td><br>      <td>0.596211</td><br>      <td>0.441966</td><br>      <td>0.147877</td><br>      <td>00:12</td><br>    </tr><br>    <tr><br>      <td>2</td><br>      <td>0.445581</td><br>      <td>0.435516</td><br>      <td>0.147877</td><br>      <td>00:12</td><br>    </tr><br>    <tr><br>      <td>3</td><br>      <td>0.347065</td><br>      <td>0.368701</td><br>      <td>0.139092</td><br>      <td>00:12</td><br>    </tr><br>    <tr><br>      <td>4</td><br>      <td>0.256508</td><br>      <td>0.349540</td><br>      <td>0.134700</td><br>      <td>00:12</td><br>    </tr><br>  </tbody><br></table>
-
-
-
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.758445</td>
+      <td>0.512455</td>
+      <td>0.194729</td>
+      <td>00:13</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.596211</td>
+      <td>0.441966</td>
+      <td>0.147877</td>
+      <td>00:12</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.445581</td>
+      <td>0.435516</td>
+      <td>0.147877</td>
+      <td>00:12</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.347065</td>
+      <td>0.368701</td>
+      <td>0.139092</td>
+      <td>00:12</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.256508</td>
+      <td>0.349540</td>
+      <td>0.134700</td>
+      <td>00:12</td>
+    </tr>
+  </tbody>
+</table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.recorder.plot_losses()</span><br></pre></td></tr></table></figure>
 <p><img src="/img/train_files/train_12_0.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.save(<span class="string">'stage-1'</span>)</span><br></pre></td></tr></table></figure>
@@ -205,10 +248,54 @@
 <pre><code>LR Finder is complete, type {learner_name}.recorder.plot() to see the graph.
 </code></pre><p><img src="/img/train_files/train_15_2.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.fit_one_cycle(<span class="number">5</span>, max_lr=slice(<span class="number">3e-5</span>,<span class="number">3e-4</span>))</span><br></pre></td></tr></table></figure>
-<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: left;"><br>      <th>epoch</th><br>      <th>train_loss</th><br>      <th>valid_loss</th><br>      <th>error_rate</th><br>      <th>time</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td>0</td><br>      <td>0.264421</td><br>      <td>0.346792</td><br>      <td>0.118594</td><br>      <td>00:12</td><br>    </tr><br>    <tr><br>      <td>1</td><br>      <td>0.266902</td><br>      <td>0.348561</td><br>      <td>0.115666</td><br>      <td>00:13</td><br>    </tr><br>    <tr><br>      <td>2</td><br>      <td>0.203252</td><br>      <td>0.310806</td><br>      <td>0.092240</td><br>      <td>00:12</td><br>    </tr><br>    <tr><br>      <td>3</td><br>      <td>0.136035</td><br>      <td>0.307759</td><br>      <td>0.096633</td><br>      <td>00:12</td><br>    </tr><br>    <tr><br>      <td>4</td><br>      <td>0.096351</td><br>      <td>0.299191</td><br>      <td>0.081991</td><br>      <td>00:12</td><br>    </tr><br>  </tbody><br></table>
-
-
-
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.264421</td>
+      <td>0.346792</td>
+      <td>0.118594</td>
+      <td>00:12</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.266902</td>
+      <td>0.348561</td>
+      <td>0.115666</td>
+      <td>00:13</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.203252</td>
+      <td>0.310806</td>
+      <td>0.092240</td>
+      <td>00:12</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.136035</td>
+      <td>0.307759</td>
+      <td>0.096633</td>
+      <td>00:12</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.096351</td>
+      <td>0.299191</td>
+      <td>0.081991</td>
+      <td>00:12</td>
+    </tr>
+  </tbody>
+</table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.save(<span class="string">'stage-2'</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">13</span>)</span><br><span class="line">data = ImageDataBunch.from_csv(path, folder=<span class="string">"."</span>, valid_pct=<span class="number">0.1</span>, csv_labels=<span class="string">'cleaned.csv'</span>,</span><br><span class="line">        ds_tfms=get_transforms(), size=<span class="number">224</span>, num_workers=<span class="number">4</span>).normalize(imagenet_stats)</span><br><span class="line"></span><br><span class="line"><span class="comment"># data = ImageDataBunch.from_folder(path, valid_pct=0.1, </span></span><br><span class="line"><span class="comment">#         ds_tfms=get_transforms(), size=256, num_workers=4).normalize(imagenet_stats)</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">learn.data = data</span><br><span class="line">data.train_ds[<span class="number">0</span>][<span class="number">0</span>].shape</span><br></pre></td></tr></table></figure>
@@ -221,20 +308,108 @@
 </code></pre><p><img src="/img/train_files/train_22_2.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lr=<span class="number">1e-3</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.fit_one_cycle(<span class="number">5</span>, slice(lr))</span><br></pre></td></tr></table></figure>
-<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: left;"><br>      <th>epoch</th><br>      <th>train_loss</th><br>      <th>valid_loss</th><br>      <th>error_rate</th><br>      <th>time</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td>0</td><br>      <td>0.161291</td><br>      <td>0.234029</td><br>      <td>0.070381</td><br>      <td>00:17</td><br>    </tr><br>    <tr><br>      <td>1</td><br>      <td>0.167096</td><br>      <td>0.226152</td><br>      <td>0.073314</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>2</td><br>      <td>0.129319</td><br>      <td>0.220638</td><br>      <td>0.058651</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>3</td><br>      <td>0.112528</td><br>      <td>0.218542</td><br>      <td>0.067449</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>4</td><br>      <td>0.099417</td><br>      <td>0.210771</td><br>      <td>0.061584</td><br>      <td>00:15</td><br>    </tr><br>  </tbody><br></table>
-
-
-
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.161291</td>
+      <td>0.234029</td>
+      <td>0.070381</td>
+      <td>00:17</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.167096</td>
+      <td>0.226152</td>
+      <td>0.073314</td>
+      <td>00:16</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.129319</td>
+      <td>0.220638</td>
+      <td>0.058651</td>
+      <td>00:16</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.112528</td>
+      <td>0.218542</td>
+      <td>0.067449</td>
+      <td>00:16</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.099417</td>
+      <td>0.210771</td>
+      <td>0.061584</td>
+      <td>00:15</td>
+    </tr>
+  </tbody>
+</table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.save(<span class="string">'stage-1-224'</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.unfreeze()</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">learn.lr_find()</span><br><span class="line">learn.recorder.plot()</span><br></pre></td></tr></table></figure>
 <pre><code>LR Finder is complete, type {learner_name}.recorder.plot() to see the graph.
 </code></pre><p><img src="/img/train_files/train_27_2.png" alt="png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.fit_one_cycle(<span class="number">5</span>, slice(<span class="number">1e-5</span>, <span class="number">1e-4</span>))</span><br></pre></td></tr></table></figure>
-<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: left;"><br>      <th>epoch</th><br>      <th>train_loss</th><br>      <th>valid_loss</th><br>      <th>error_rate</th><br>      <th>time</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td>0</td><br>      <td>0.105140</td><br>      <td>0.214372</td><br>      <td>0.064516</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>1</td><br>      <td>0.111843</td><br>      <td>0.205230</td><br>      <td>0.058651</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>2</td><br>      <td>0.079822</td><br>      <td>0.215189</td><br>      <td>0.061584</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>3</td><br>      <td>0.054678</td><br>      <td>0.206315</td><br>      <td>0.058651</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>4</td><br>      <td>0.054817</td><br>      <td>0.216175</td><br>      <td>0.061584</td><br>      <td>00:16</td><br>    </tr><br>  </tbody><br></table>
-
-
-
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.105140</td>
+      <td>0.214372</td>
+      <td>0.064516</td>
+      <td>00:16</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.111843</td>
+      <td>0.205230</td>
+      <td>0.058651</td>
+      <td>00:16</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.079822</td>
+      <td>0.215189</td>
+      <td>0.061584</td>
+      <td>00:16</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.054678</td>
+      <td>0.206315</td>
+      <td>0.058651</td>
+      <td>00:16</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.054817</td>
+      <td>0.216175</td>
+      <td>0.061584</td>
+      <td>00:16</td>
+    </tr>
+  </tbody>
+</table>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.save(<span class="string">'stage-2-224'</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.export()</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">interp = ClassificationInterpretation.from_learner(learn)</span><br><span class="line">interp.plot_confusion_matrix()</span><br></pre></td></tr></table></figure>
@@ -399,14 +574,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">CV</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Deep Learning</a>
-              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
