@@ -6,15 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>枯木风行的博客</title>
+  <title>train | 枯木风行的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="枯木风行的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="123%reload_ext autoreload%autoreload 2%matplotlib inline 1234from fastai.vision import *from fastai.metrics import error_ratefrom fastai.callbacks import *import glob 1path = Path(&apos;../input/flowers-re">
+<meta property="og:type" content="article">
+<meta property="og:title" content="train">
+<meta property="og:url" content="http://yoursite.com/2019/05/29/train/index.html">
 <meta property="og:site_name" content="枯木风行的博客">
+<meta property="og:description" content="123%reload_ext autoreload%autoreload 2%matplotlib inline 1234from fastai.vision import *from fastai.metrics import error_ratefrom fastai.callbacks import *import glob 1path = Path(&apos;../input/flowers-re">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/img/train_files/train_5_0.png">
+<meta property="og:image" content="http://yoursite.com/img/train_files/train_9_2.png">
+<meta property="og:image" content="http://yoursite.com/img/train_files/train_12_0.png">
+<meta property="og:image" content="http://yoursite.com/img/train_files/train_15_2.png">
+<meta property="og:image" content="http://yoursite.com/img/train_files/train_22_2.png">
+<meta property="og:image" content="http://yoursite.com/img/train_files/train_27_2.png">
+<meta property="og:image" content="http://yoursite.com/img/train_files/train_31_0.png">
+<meta property="og:image" content="http://yoursite.com/img/train_files/train_33_0.png">
+<meta property="og:updated_time" content="2019-05-28T16:16:04.257Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="枯木风行的博客">
+<meta name="twitter:title" content="train">
+<meta name="twitter:description" content="123%reload_ext autoreload%autoreload 2%matplotlib inline 1234from fastai.vision import *from fastai.metrics import error_ratefrom fastai.callbacks import *import glob 1path = Path(&apos;../input/flowers-re">
+<meta name="twitter:image" content="http://yoursite.com/img/train_files/train_5_0.png">
   
     <link rel="alternative" href="/atom.xml" title="枯木风行的博客" type="application/atom+xml">
   
@@ -142,16 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-train" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-train" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/29/train/">train</a>
+    <h1 class="article-title" itemprop="name">
+      train
     </h1>
   
 
@@ -172,9 +183,76 @@
 <pre><code>[&apos;daisy&apos;, &apos;dandelion&apos;, &apos;rose&apos;, &apos;sunflower&apos;, &apos;tulip&apos;]
 </code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.show_batch(rows=<span class="number">3</span>, figsize=(<span class="number">7</span>,<span class="number">8</span>))</span><br></pre></td></tr></table></figure>
 <p><img src="/img/train_files/train_5_0.png" alt="png"></p>
-        
-          <a class="article-more-a" href="/2019/05/29/train/#more">more >></a>
-        
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.classes, data.c, len(data.train_ds), len(data.valid_ds)</span><br></pre></td></tr></table></figure>
+<pre><code>([&apos;daisy&apos;, &apos;dandelion&apos;, &apos;rose&apos;, &apos;sunflower&apos;, &apos;tulip&apos;], 5, 2733, 683)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn = cnn_learner(data, models.resnet50, metrics=error_rate)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.data.batch_size = <span class="number">32</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">learn.lr_find()</span><br><span class="line">learn.recorder.plot()</span><br></pre></td></tr></table></figure>
+<pre><code>LR Finder is complete, type {learner_name}.recorder.plot() to see the graph.
+</code></pre><p><img src="/img/train_files/train_9_2.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lr = <span class="number">1e-2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.fit_one_cycle(<span class="number">5</span>, slice(lr))</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: left;"><br>      <th>epoch</th><br>      <th>train_loss</th><br>      <th>valid_loss</th><br>      <th>error_rate</th><br>      <th>time</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td>0</td><br>      <td>0.758445</td><br>      <td>0.512455</td><br>      <td>0.194729</td><br>      <td>00:13</td><br>    </tr><br>    <tr><br>      <td>1</td><br>      <td>0.596211</td><br>      <td>0.441966</td><br>      <td>0.147877</td><br>      <td>00:12</td><br>    </tr><br>    <tr><br>      <td>2</td><br>      <td>0.445581</td><br>      <td>0.435516</td><br>      <td>0.147877</td><br>      <td>00:12</td><br>    </tr><br>    <tr><br>      <td>3</td><br>      <td>0.347065</td><br>      <td>0.368701</td><br>      <td>0.139092</td><br>      <td>00:12</td><br>    </tr><br>    <tr><br>      <td>4</td><br>      <td>0.256508</td><br>      <td>0.349540</td><br>      <td>0.134700</td><br>      <td>00:12</td><br>    </tr><br>  </tbody><br></table>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.recorder.plot_losses()</span><br></pre></td></tr></table></figure>
+<p><img src="/img/train_files/train_12_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.save(<span class="string">'stage-1'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.unfreeze()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">learn.lr_find()</span><br><span class="line">learn.recorder.plot()</span><br></pre></td></tr></table></figure>
+<pre><code>LR Finder is complete, type {learner_name}.recorder.plot() to see the graph.
+</code></pre><p><img src="/img/train_files/train_15_2.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.fit_one_cycle(<span class="number">5</span>, max_lr=slice(<span class="number">3e-5</span>,<span class="number">3e-4</span>))</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: left;"><br>      <th>epoch</th><br>      <th>train_loss</th><br>      <th>valid_loss</th><br>      <th>error_rate</th><br>      <th>time</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td>0</td><br>      <td>0.264421</td><br>      <td>0.346792</td><br>      <td>0.118594</td><br>      <td>00:12</td><br>    </tr><br>    <tr><br>      <td>1</td><br>      <td>0.266902</td><br>      <td>0.348561</td><br>      <td>0.115666</td><br>      <td>00:13</td><br>    </tr><br>    <tr><br>      <td>2</td><br>      <td>0.203252</td><br>      <td>0.310806</td><br>      <td>0.092240</td><br>      <td>00:12</td><br>    </tr><br>    <tr><br>      <td>3</td><br>      <td>0.136035</td><br>      <td>0.307759</td><br>      <td>0.096633</td><br>      <td>00:12</td><br>    </tr><br>    <tr><br>      <td>4</td><br>      <td>0.096351</td><br>      <td>0.299191</td><br>      <td>0.081991</td><br>      <td>00:12</td><br>    </tr><br>  </tbody><br></table>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.save(<span class="string">'stage-2'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(<span class="number">13</span>)</span><br><span class="line">data = ImageDataBunch.from_csv(path, folder=<span class="string">"."</span>, valid_pct=<span class="number">0.1</span>, csv_labels=<span class="string">'cleaned.csv'</span>,</span><br><span class="line">        ds_tfms=get_transforms(), size=<span class="number">224</span>, num_workers=<span class="number">4</span>).normalize(imagenet_stats)</span><br><span class="line"></span><br><span class="line"><span class="comment"># data = ImageDataBunch.from_folder(path, valid_pct=0.1, </span></span><br><span class="line"><span class="comment">#         ds_tfms=get_transforms(), size=256, num_workers=4).normalize(imagenet_stats)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">learn.data = data</span><br><span class="line">data.train_ds[<span class="number">0</span>][<span class="number">0</span>].shape</span><br></pre></td></tr></table></figure>
+<pre><code>torch.Size([3, 224, 224])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">learn.data.batch_size = <span class="number">32</span></span><br><span class="line">learn.data.batch_size</span><br></pre></td></tr></table></figure>
+<pre><code>32
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.freeze()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">learn.lr_find()</span><br><span class="line">learn.recorder.plot()</span><br></pre></td></tr></table></figure>
+<pre><code>LR Finder is complete, type {learner_name}.recorder.plot() to see the graph.
+</code></pre><p><img src="/img/train_files/train_22_2.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lr=<span class="number">1e-3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.fit_one_cycle(<span class="number">5</span>, slice(lr))</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: left;"><br>      <th>epoch</th><br>      <th>train_loss</th><br>      <th>valid_loss</th><br>      <th>error_rate</th><br>      <th>time</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td>0</td><br>      <td>0.161291</td><br>      <td>0.234029</td><br>      <td>0.070381</td><br>      <td>00:17</td><br>    </tr><br>    <tr><br>      <td>1</td><br>      <td>0.167096</td><br>      <td>0.226152</td><br>      <td>0.073314</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>2</td><br>      <td>0.129319</td><br>      <td>0.220638</td><br>      <td>0.058651</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>3</td><br>      <td>0.112528</td><br>      <td>0.218542</td><br>      <td>0.067449</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>4</td><br>      <td>0.099417</td><br>      <td>0.210771</td><br>      <td>0.061584</td><br>      <td>00:15</td><br>    </tr><br>  </tbody><br></table>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.save(<span class="string">'stage-1-224'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.unfreeze()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">learn.lr_find()</span><br><span class="line">learn.recorder.plot()</span><br></pre></td></tr></table></figure>
+<pre><code>LR Finder is complete, type {learner_name}.recorder.plot() to see the graph.
+</code></pre><p><img src="/img/train_files/train_27_2.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.fit_one_cycle(<span class="number">5</span>, slice(<span class="number">1e-5</span>, <span class="number">1e-4</span>))</span><br></pre></td></tr></table></figure>
+<table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: left;"><br>      <th>epoch</th><br>      <th>train_loss</th><br>      <th>valid_loss</th><br>      <th>error_rate</th><br>      <th>time</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td>0</td><br>      <td>0.105140</td><br>      <td>0.214372</td><br>      <td>0.064516</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>1</td><br>      <td>0.111843</td><br>      <td>0.205230</td><br>      <td>0.058651</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>2</td><br>      <td>0.079822</td><br>      <td>0.215189</td><br>      <td>0.061584</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>3</td><br>      <td>0.054678</td><br>      <td>0.206315</td><br>      <td>0.058651</td><br>      <td>00:16</td><br>    </tr><br>    <tr><br>      <td>4</td><br>      <td>0.054817</td><br>      <td>0.216175</td><br>      <td>0.061584</td><br>      <td>00:16</td><br>    </tr><br>  </tbody><br></table>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.save(<span class="string">'stage-2-224'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn.export()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">interp = ClassificationInterpretation.from_learner(learn)</span><br><span class="line">interp.plot_confusion_matrix()</span><br></pre></td></tr></table></figure>
+<p><img src="/img/train_files/train_31_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">losses,idxs = interp.top_losses()</span><br><span class="line">len(data.valid_ds)==len(losses)==len(idxs)</span><br></pre></td></tr></table></figure>
+<pre><code>True
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interp.plot_top_losses(<span class="number">9</span>, figsize=(<span class="number">15</span>,<span class="number">11</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="/img/train_files/train_33_0.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interp.most_confused(min_val=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>[(&apos;tulip&apos;, &apos;rose&apos;, 4),
+ (&apos;daisy&apos;, &apos;dandelion&apos;, 3),
+ (&apos;dandelion&apos;, &apos;daisy&apos;, 2),
+ (&apos;rose&apos;, &apos;tulip&apos;, 2),
+ (&apos;sunflower&apos;, &apos;dandelion&apos;, 2)]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(os.path.join(<span class="string">'./save'</span>, <span class="string">'flower_batch32.csv'</span>), <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.truncate()</span><br><span class="line">    f.write(<span class="string">'Id,Expected\n'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">learn = load_learner(path)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> glob.glob(<span class="string">'../input/flowers-recognition/flowers/predict/*/*.png'</span>):</span><br><span class="line">    img = open_image(i)</span><br><span class="line">    img</span><br><span class="line">    pred_class,pred_idx,outputs = learn.predict(img)</span><br><span class="line">    <span class="keyword">with</span> open(os.path.join(<span class="string">'./save'</span>, <span class="string">'flower_batch32.csv'</span>), <span class="string">'a'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(<span class="string">'%s,%s\n'</span>%(i.split(<span class="string">'/'</span>)[<span class="number">6</span>].split(<span class="string">'.'</span>)[<span class="number">0</span>], pred_class))</span><br><span class="line">    <span class="comment"># print('%s,%s\n'%(i.split('/')[6].split('.')[0], pred_class))</span></span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -185,16 +263,24 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/29/train/">展开全文 >></a>
-        </p>
-      
 
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -214,90 +300,14 @@
 
 
 
-
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/28/hello-world/">Hello World</a>
-    </h1>
   
 
-        
-        <a href="/2019/05/28/hello-world/" class="archive-article-date">
-  	<time datetime="2019-05-28T14:21:09.607Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/28/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  
 
   
+
   
 
 
@@ -320,8 +330,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
